@@ -8,21 +8,8 @@
       <h2 class="subtitle">
         My wicked Nuxt.js project
       </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+      <div class="row mt-5">
+        <div class="col-md-4" v-for="card in cards" :key="card.id"><Card :card="card" /></div>
       </div>
     </div>
   </div>
@@ -30,10 +17,35 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
-
+import Card from '~/components/Card.vue'
 export default {
   components: {
-    Logo
+    Logo,
+    Card
+  },
+  data() {
+    return {
+      cards: [
+        {
+          id: 1,
+          image:
+            'https://q-cf.bstatic.com/images/hotel/max1024x768/107/107387387.jpg',
+          title: 'Jayakarta Hotel'
+        },
+        {
+          id: 2,
+          image:
+            'https://d1nabgopwop1kh.cloudfront.net/hotel-asset/30000001000189414_wh_28',
+          title: 'Serela Legian Hotel'
+        },
+        {
+          id: 3,
+          image:
+            'https://origin.pegipegi.com/jalan/images/pict1L/Y4/Y914314/Y914314047.jpg',
+          title: 'Eden Hotel'
+        },
+      ]
+    }
   }
 }
 </script>
